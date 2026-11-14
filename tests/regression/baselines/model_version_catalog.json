@@ -1,0 +1,43 @@
+{
+  "body": {
+    "models": [
+      {
+        "configured": true,
+        "model": "fake-large",
+        "notes": "Deterministic local model used for development and fallback.",
+        "provider": "fake",
+        "released_on": "2026-11-14",
+        "status": "active",
+        "version": "1.0.0"
+      },
+      {
+        "configured": true,
+        "model": "fake-small",
+        "notes": "Deterministic local model used for development and fallback.",
+        "provider": "fake",
+        "released_on": "2026-11-14",
+        "status": "active",
+        "version": "1.0.0"
+      },
+      {
+        "configured": false,
+        "model": "gpt-4o",
+        "notes": "Pinned OpenAI snapshot; update the manifest when changing deployments.",
+        "provider": "openai",
+        "released_on": "2024-11-20",
+        "status": "active",
+        "version": "gpt-4o-2024-11-20"
+      },
+      {
+        "configured": false,
+        "model": "gpt-4o-mini",
+        "notes": "Pinned OpenAI snapshot; update the manifest when changing deployments.",
+        "provider": "openai",
+        "released_on": "2024-07-18",
+        "status": "active",
+        "version": "gpt-4o-mini-2024-07-18"
+      }
+    ]
+  },
+  "status_code": 200
+}

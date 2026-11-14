@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "models": [
+    {
+      "provider": "fake",
+      "model": "fake-small",
+      "version": "1.0.0",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Deterministic local model used for development and fallback."
+    },
+    {
+      "provider": "fake",
+      "model": "fake-large",
+      "version": "1.0.0",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Deterministic local model used for development and fallback."
+    },
+    {
+      "provider": "openai",
+      "model": "llama-3.3-70b-versatile",
+      "version": "groq-2026-11-14",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Groq-hosted Llama 3.3 70B reached through the OpenAI-compatible endpoint."
+    },
+    {
+      "provider": "openai",
+      "model": "llama-3.1-8b-instant",
+      "version": "groq-2026-11-14",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Groq-hosted Llama 3.1 8B Instant reached through the OpenAI-compatible endpoint."
+    },
+    {
+      "provider": "openai",
+      "model": "openai/gpt-oss-120b",
+      "version": "groq-2026-11-14",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Groq-hosted GPT-OSS 120B reached through the OpenAI-compatible endpoint."
+    },
+    {
+      "provider": "openai",
+      "model": "openai/gpt-oss-20b",
+      "version": "groq-2026-11-14",
+      "status": "active",
+      "released_on": "2026-11-14",
+      "notes": "Groq-hosted GPT-OSS 20B reached through the OpenAI-compatible endpoint."
+    }
+  ]
+}

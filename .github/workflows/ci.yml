@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PYTHON_VERSION: "3.14"
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONHASHSEED: "0"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  UPDATE_REGRESSION_BASELINES: "0"
+
+jobs:
+  quality-gate:
+    name: Quality gate (Python 3.14)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Byte-compile application and tests
+        run: python -m compileall -q app dashboard tests alembic
+
+      - name: Lint with Ruff
+        run: python -m ruff check .
+
+      - name: Run full test suite
+        run: python -m pytest -q --strict-config --strict-markers
+
+      - name: Run deterministic fault matrix
+        run: python -m pytest -q -m fault_matrix tests/test_fault_matrix.py
+
+      - name: Run model-version and regression suite
+        run: python -m pytest -q -m regression tests/test_model_versions.py tests/test_regression.py
+
+      - name: Verify regression baselines are unchanged
+        run: git diff --exit-code -- tests/regression/baselines

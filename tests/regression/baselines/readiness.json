@@ -1,0 +1,11 @@
+{
+  "body": {
+    "checks": {
+      "configuration": "ok",
+      "logging": "ok",
+      "models": "ok"
+    },
+    "status": "ready"
+  },
+  "status_code": 200
+}

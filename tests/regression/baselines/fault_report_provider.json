@@ -1,0 +1,31 @@
+{
+  "body": {
+    "completion_tokens": 24,
+    "cost_usd": 0.0,
+    "extraction": "provider",
+    "extraction_reason": null,
+    "fallback_reason": null,
+    "fallback_used": false,
+    "missing_fields": [],
+    "model": "fake-small",
+    "prompt_tokens": 18,
+    "provider": "fake",
+    "providers_tried": [
+      "fake"
+    ],
+    "request_id": "regression-fault-provider-001",
+    "retry_count": 0,
+    "selected_provider": "fake",
+    "summary": {
+      "action_taken": "Replaced seal",
+      "downtime": "25 minutes",
+      "fault_description": "Hydraulic pressure dropped",
+      "machine": "Press 4",
+      "severity": "high",
+      "temperature": 82.0,
+      "temperature_unit": "C"
+    },
+    "total_tokens": 42
+  },
+  "status_code": 200
+}

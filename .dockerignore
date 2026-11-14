@@ -1,0 +1,36 @@
+# Version control and hosted CI
+.git
+.github
+
+# Local environments and caches
+.venv
+venv
+env
+__pycache__
+*.py[cod]
+*.egg-info
+.pytest_cache
+.ruff_cache
+.mypy_cache
+.coverage
+.coverage.*
+htmlcov
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.docker.example
+
+# Local data, artifacts, and documentation
+data
+artifacts
+logs
+docs
+
+# Development-only trees
+tests
+scripts/*
+!scripts/docker-entrypoint.sh
+
+# Container orchestration files are not image content
+compose.yaml

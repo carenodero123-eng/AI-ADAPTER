@@ -1,0 +1,23 @@
+{
+  "body": {
+    "content": "[fake:fake-small] Pump 7 vibration is high.",
+    "cost_usd": 0.0,
+    "fallback_reason": null,
+    "fallback_used": false,
+    "finish_reason": "stop",
+    "model": "fake-small",
+    "provider": "fake",
+    "providers_tried": [
+      "fake"
+    ],
+    "request_id": "regression-generation-001",
+    "requested_provider": "fake",
+    "retry_count": 0,
+    "usage": {
+      "completion_tokens": 6,
+      "prompt_tokens": 7,
+      "total_tokens": 13
+    }
+  },
+  "status_code": 200
+}

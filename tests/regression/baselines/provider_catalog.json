@@ -1,0 +1,16 @@
+{
+  "body": [
+    {
+      "default_model": "fake-small",
+      "display_name": "Local Fake Provider",
+      "is_default": true,
+      "kind": "fake",
+      "models": [
+        "fake-small",
+        "fake-large"
+      ],
+      "name": "fake"
+    }
+  ],
+  "status_code": 200
+}

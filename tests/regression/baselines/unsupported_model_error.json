@@ -1,0 +1,12 @@
+{
+  "body": {
+    "error": {
+      "code": "provider_invalid_request",
+      "message": "Model 'missing-model' is not supported by provider 'fake'.",
+      "provider": "fake",
+      "retryable": false
+    },
+    "request_id": "regression-error-001"
+  },
+  "status_code": 400
+}
