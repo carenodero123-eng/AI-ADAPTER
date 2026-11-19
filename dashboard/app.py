@@ -121,7 +121,50 @@ def _provider_rows(
     ]
 
 
+def _render_project_summary() -> None:
+    with st.expander("Project overview", expanded=True):
+        st.markdown(
+            "The AI Adapter gives the department one provider-independent way to "
+            "use an AI service. Every request passes through a single adapter "
+            "interface with timeouts, bounded retries, a budget limit, and "
+            "deterministic fallback to a local model, so the feature keeps "
+            "working when a provider fails and no service is locked to one "
+            "vendor. The request log records operational metadata only; "
+            "prompts, report text, API keys, and credentials are never stored."
+        )
+        build_column, feature_column, evidence_column = st.columns(3)
+        with build_column:
+            st.markdown("**Core platform**")
+            st.markdown(
+                "- One adapter interface: local fake and live provider\n"
+                "- Timeouts, bounded retries, and a budget limit\n"
+                "- Deterministic fallback when the live provider fails\n"
+                "- Secret-free, durable request log"
+            )
+        with feature_column:
+            st.markdown("**AI feature**")
+            st.markdown(
+                "- Summarizes a fault report into fixed fields\n"
+                "- One task, executed end to end through the adapter\n"
+                "- Output validated against a strict schema"
+            )
+        with evidence_column:
+            st.markdown("**Evidence**")
+            st.markdown(
+                "- Fault injection: timeout, malformed JSON, rate limit, "
+                "model change\n"
+                "- Regression suite rerun after each model version change\n"
+                "- P50 and P95 latency plus cost per accepted result "
+                "reported below"
+            )
+        st.caption(
+            "Modules: M4 — adapter, reliability, model changes | "
+            "M5 — CI quality gate | M6 — cost, tail latency"
+        )
+
+
 def _render_overview(client: ApiClient) -> None:
+    _render_project_summary()
     provider_options = ["All providers", *_provider_names(client)]
     columns = st.columns(3)
     window = columns[0].selectbox(
